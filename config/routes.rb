@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
-  resource :about, only: [:index] do
-    root to: "about#index"
-  end
+  #About Page - Resources should usually match with a DB call. 
+  get "about", to: "about#index"
   
   resource :cart, only: [:show] do
     post   :add_item
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
+    resources :categories, only: [:index, :create, :new]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
