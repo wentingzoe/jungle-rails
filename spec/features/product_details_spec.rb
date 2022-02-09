@@ -24,7 +24,7 @@ RSpec.feature "Visitor navigates to product detail page by clicking on a product
       first('.product').click_on "Details"
 
       #DEBUG
-      save_screenshot
+      # save_screenshot
 
       #VERIFY
       expect(page).to have_css 'section.products-show'
